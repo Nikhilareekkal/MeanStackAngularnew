@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <h4>Welcome to Yesbank<br>
+                <h5>{{aim}}</h5>
+            </h4>
+
+            <input type="text" id="acno" [value]="accno" (change)="accnoChange($event)" placeholder="enter account number">
+            <input type="text" id="pwd" (change)="pswdChange($event)" placeholder="enter password">
+            <button class="btn btn-success" (click)="login()">login</button>
+
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
