@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
   aim="your perfect banking partner";
-  accno="Acount number please";
+  acno="Acount number please";
   pswd="";
   accountDetails= {
     1000: { acno: 1000,  username: "userone", password: "userone", balance: 50000 },
@@ -21,20 +21,20 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  accnoChange(event:any){
-    this.accno=event.target.value;
-    console.log(this.accno);
+  // accnoChange(event:any){
+  //   this.accno=event.target.value;
+  //   console.log(this.accno);
     
-  }
-  pswdChange(event:any){
-    this.pswd=event.target.value;
-    console.log(this.pswd);
+  // }
+  // pswdChange(event:any){
+  //   this.pswd=event.target.value;
+  //   console.log(this.pswd);
     
-  }
-  login(){
-    alert("log in clicked")
-    var acno=this.accno;
-    var pswd=this.pswd;
+  // }
+  login(a:any,p:any){
+    
+    var acno=a.value;
+    var pswd=p.value;
    let users=this.accountDetails;
     if (acno in users) {
         if (pswd == users[acno]["password"]) {
