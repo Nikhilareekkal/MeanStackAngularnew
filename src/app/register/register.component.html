@@ -5,10 +5,9 @@
             <h4>Welcome to Yesbank<br>
                 <h5>{{aim}}</h5>
             </h4>
-
+            <input type="text" id="uname"   [(ngModel)]= "uname" placeholder="enter username">
             <input type="text" id="acno"   [(ngModel)]= "accno" placeholder="enter account number">
-            <input type="text" id="pwd"   [(ngModel)]= "pswd" placeholder="enter password">
-            <button class="btn btn-success" (click)="login()">login</button>
+            <input type="password" id="pwd"   [(ngModel)]= "pswd" placeholder="enter password">
             <button class="btn btn-success" (click)="register()">register</button>
 
         </div>
