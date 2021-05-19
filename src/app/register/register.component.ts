@@ -17,25 +17,22 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
   register(){
-    var uname=this.uname;
-    var acno=this.accno;
-    var pswd=this.pswd;
+    
+var uname=this.uname;
+var acno=this.accno;
+var pswd=this.pswd;
 
-    let user = this.dataService.accountDetails;
+const result = this.dataService.register(uname,acno,pswd)
 
-    if(acno in user){
-      alert("user exist please login");
-  }
-  else{
-    user[acno]={
-    acno,
-    username:uname,
-    password:pswd,
-    balance:0}
-  }
+if(result){
   alert("successfully registerd.......");
+  
   this.router.navigateByUrl("");
-  }
+}
+else{
+  alert("user exist please login");
+}
 
+}
 
 }
