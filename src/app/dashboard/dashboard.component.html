@@ -3,12 +3,12 @@
         <div class="col-4"></div>
         <div class="col-4">
             <h4>Deposit Form</h4>
-
-            <input type="text" id="acno" placeholder="enter account number">
-            <input type="text" id="pwd" placeholder="enter password">    
-            <input type="text" name="" id="uname" placeholder="amount">
-            <button class="btn btn-success" onclick="">Deposit</button>
-
+            <form (ngSubmit) ="deposit()">
+            <input type="text" id="acno" name="Accno"  [(ngModel)]= "dAccno" placeholder="enter account number">
+            <input type="text" id="pwd" name="Pswd"  [(ngModel)]= "dPswd" placeholder="enter password">    
+            <input type="text"  name="Amount"  [(ngModel)]= "dAmount" id="amt" placeholder="amount">
+            <input type="submit" class="btn btn-success"  value="Deposit">
+            </form>
         </div>
         <div class="col-4"></div>
     </div>
@@ -18,12 +18,12 @@
         <div class="col-4"></div>
         <div class="col-4">
             <h4>Withdrwal Form</h4>
-
-            <input type="text" id="acno1" placeholder="enter account number">
-            <input type="text" id="pwd1" placeholder="enter password">
-            <input type="text" name="" id="uname1" placeholder="amount">
+            <form (ngSubmit) ="withdrwal()">
+            <input type="text" id="acno1" name="Accno"  [(ngModel)]= "wAccno" placeholder="enter account number">
+            <input type="text" id="pwd1" name="Pswd"  [(ngModel)]= "wPswd" placeholder="enter password">
+            <input type="text" name="Amount"  [(ngModel)]= "wAmount"  id="amt1" placeholder="amount">
             <button class="btn btn-success" onclick="">Withdrwal</button>
-
+            </form>
         </div>
         <div class="col-4"></div>
     </div>
