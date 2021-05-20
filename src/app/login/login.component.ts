@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from '../servics/data.service';
 
@@ -11,10 +12,13 @@ export class LoginComponent implements OnInit {
   aim="your perfect banking partner";
   accno="Acount number please";
   pswd="";
-  
+  loginForm=this.fb.group({
+  accno:['',[Validators.required,Validators.pattern('[0-9]*')]],
+  pswd:['',[Validators.required,Validators.pattern('[a-zA-z0-9]*')]]
+})
 
 
-  constructor(private router:Router,private dataService:DataService) { }
+  constructor(private router:Router,private dataService:DataService,private fb:FormBuilder) { }
 
   ngOnInit(): void {
   }
@@ -30,8 +34,8 @@ export class LoginComponent implements OnInit {
   // }
   login(){
     
-    var acno=this.accno;
-    var pswd=this.pswd;
+    var acno=this.loginForm.value.accno;
+    var pswd=this.loginForm.value.pswd;
    
     const result = this.dataService.login(acno,pswd);
 

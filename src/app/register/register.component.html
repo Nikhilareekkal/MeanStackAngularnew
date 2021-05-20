@@ -7,8 +7,11 @@
             
             <form [formGroup] ="registerForm"  (ngSubmit)="register()">
             <input type="text" id="uname" name="usname"  formControlName= "uname" placeholder="enter username">
-            <input type="text" id="acno"  name="acno"  formControlName ="acno" placeholder="enter account number">
-            <input type="password" id="pwd" name="pwd"  formControlName="pswd" placeholder="enter password">
+            <div *ngIf= "(registerForm.get('uname')?.touched || registerForm.get('uname')?.dirty) && registerForm.get('uname')?.errors" class="error">invalid username</div>
+            <input type="text" id="acno"  name="acno"  formControlName ="acno" placeholder="enter account number"><br>
+            <div *ngIf= "(registerForm.get('acno')?.touched || registerForm.get('acno')?.dirty) && registerForm.get('acno')?.errors" class="error">invalid acount number</div>
+            <input type="password" id="pwd" name="pwd"  formControlName="pswd" placeholder="enter password"><br>
+            <div *ngIf= "(registerForm.get('pswd')?.touched || registerForm.get('pswd')?.dirty) && registerForm.get('pswd')?.errors" class="error">invalid password </div>
             <input type="submit" class="btn btn-success"  value="register">
             <a routerLink="">Log In</a>
         </form>
