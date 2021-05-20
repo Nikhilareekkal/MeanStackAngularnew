@@ -29,6 +29,7 @@ withdrawForm=this.fb.group({
   ngOnInit(): void {
   }
   deposit(){
+    
     var accno=this.depositForm.value.accno;
     var pswd=this.depositForm.value.pswd;
     var amount=this.depositForm.value.amount;

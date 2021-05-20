@@ -7,7 +7,7 @@
             <input type="text" id="acno" name="Accno"  formControlName= "accno" placeholder="enter account number">
             <div *ngIf= "(depositForm.get('accno')?.touched || depositForm.get('accno')?.dirty) && depositForm.get('accno')?.errors" class="error">invalid acount number</div>
 
-            <input type="text" id="pwd" name="Pswd"  formControlName= "pswd" placeholder="enter password">    
+            <input type="password" id="pwd" name="Pswd"  formControlName= "pswd" placeholder="enter password">    
             <div *ngIf= "(depositForm.get('pswd')?.touched || depositForm.get('pswd')?.dirty) && depositForm.get('pswd')?.errors" class="error">invalid acount number</div>
 
             <input type="text"  name="Amount"  formControlName= "amount" id="amt" placeholder="amount">
@@ -28,7 +28,7 @@
             <input type="text" id="acno1" name="Accno"  formControlName= "waccno" placeholder="enter account number">
             <div *ngIf= "(withdrawForm.get('waccno')?.touched || withdrawForm.get('waccno')?.dirty) && withdrawForm.get('waccno')?.errors" class="error">invalid acount number</div>
 
-            <input type="text" id="pwd1" name="Pswd"  formControlName= "wpswd" placeholder="enter password">
+            <input type="password" id="pwd1" name="Pswd"  formControlName= "wpswd" placeholder="enter password">
             <div *ngIf= "(withdrawForm.get('wpswd')?.touched || withdrawForm.get('wpswd')?.dirty) && withdrawForm.get('wpswd')?.errors" class="error">invalid acount number</div>
 
             <input type="text" name="Amount"  formControlName= "wamount"  id="amt1" placeholder="amount">

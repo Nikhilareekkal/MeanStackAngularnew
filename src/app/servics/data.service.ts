@@ -12,7 +12,7 @@ export class DataService {
   } 
 
   constructor() { }
-  register(uname:any,acno:any,pswd:any,){
+  register(uname:any,acno:any,pswd:any){
     let user = this.accountDetails;
 
     if(acno in user){
@@ -50,8 +50,8 @@ export class DataService {
    let user = this.accountDetails;
    if(accno in user){
     if (pswd == user[accno]["password"]) {
-      user[accno]["balance"];
-      return true;
+      user[accno]["balance"]+=amount;
+      return user[accno]["balance"];
    }
    else{
      alert("incorrect password");
