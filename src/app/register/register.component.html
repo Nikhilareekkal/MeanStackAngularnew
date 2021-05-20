@@ -5,14 +5,14 @@
             <h4>Welcome to Yesbank</h4><br>
                 <h5>Register form</h5>
             
-            <form (ngSubmit)="register()">
-            <input type="text" id="uname" name="usname" [(ngModel)]= "uname" placeholder="enter username">
-            <input type="text" id="acno"  name="acno" [(ngModel)] ="accno" placeholder="enter account number">
-            <input type="password" id="pwd" name="pwd" [(ngModel)]= "pswd" placeholder="enter password">
+            <form [formGroup] ="registerForm"  (ngSubmit)="register()">
+            <input type="text" id="uname" name="usname"  formControlName= "uname" placeholder="enter username">
+            <input type="text" id="acno"  name="acno"  formControlName ="acno" placeholder="enter account number">
+            <input type="password" id="pwd" name="pwd"  formControlName="pswd" placeholder="enter password">
             <input type="submit" class="btn btn-success"  value="register">
             <a routerLink="">Log In</a>
         </form>
-        </div>
+        </div> 
         <div class="col-4"></div>
     </div>
 </div>
