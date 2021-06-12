@@ -1,3 +1,7 @@
 .error{
     color:red
 }
+.style1{
+    background-color:rgb(184, 153, 153);
+    opacity: 0.1;
+}

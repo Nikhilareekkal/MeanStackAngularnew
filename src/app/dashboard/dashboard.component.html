@@ -1,16 +1,19 @@
 <div class="container">
+    <h2  appHighlight>Welcome {{user}}</h2>
+    <h4>Login Details(Formatted):{{lDate | date :'medium'}}</h4>
+    <h4>Login Details(Formatted):{{lDate | date | uppercase}}</h4>
     <div class="row">
         <div class="col-4"></div>
-        <div class="col-4">
+        <div  [ngClass]="acno?'style1':''"  class="col-4">
             <h4>Deposit Form</h4>
-            <form [formGroup]= "depositForm" (ngSubmit) ="deposit()">
-            <input type="text" id="acno" name="Accno"  formControlName= "accno" placeholder="enter account number">
+            <form  [formGroup]= "depositForm" (ngSubmit) ="deposit()">
+            <input type="text" id="acno" name="Accno"  formControlName= "accno" placeholder="enter account number"><br>
             <div *ngIf= "(depositForm.get('accno')?.touched || depositForm.get('accno')?.dirty) && depositForm.get('accno')?.errors" class="error">invalid acount number</div>
 
-            <input type="password" id="pwd" name="Pswd"  formControlName= "pswd" placeholder="enter password">    
+            <input type="password" id="pwd" name="Pswd"  formControlName= "pswd" placeholder="enter password">  <br>  
             <div *ngIf= "(depositForm.get('pswd')?.touched || depositForm.get('pswd')?.dirty) && depositForm.get('pswd')?.errors" class="error">invalid acount number</div>
 
-            <input type="text"  name="Amount"  formControlName= "amount" id="amt" placeholder="amount">
+            <input type="text"  name="Amount"  formControlName= "amount" id="amt" placeholder="amount"><br>
             <div *ngIf= "(depositForm.get('amount')?.touched || depositForm.get('amount')?.dirty) && depositForm.get('amount')?.errors" class="error">invalid acount number</div>
 
             <input type="submit" class="btn btn-success"  value="Deposit">
@@ -19,24 +22,30 @@
         <div class="col-4"></div>
     </div>
 </div>
+<app-animation></app-animation>
 <div class="container">
     <div class="row">
         <div class="col-4"></div>
-        <div class="col-4">
+        <div  [ngClass]="acno?'style1':''" class="col-4">
             <h4>Withdrwal Form</h4>
             <form [formGroup] ="withdrawForm" (ngSubmit) ="withdrwal()">
-            <input type="text" id="acno1" name="Accno"  formControlName= "waccno" placeholder="enter account number">
+            <input type="text" id="acno1" name="Accno"  formControlName= "waccno" placeholder="enter account number"><br>
             <div *ngIf= "(withdrawForm.get('waccno')?.touched || withdrawForm.get('waccno')?.dirty) && withdrawForm.get('waccno')?.errors" class="error">invalid acount number</div>
 
-            <input type="password" id="pwd1" name="Pswd"  formControlName= "wpswd" placeholder="enter password">
+            <input type="password" id="pwd1" name="Pswd"  formControlName= "wpswd" placeholder="enter password"><br>
             <div *ngIf= "(withdrawForm.get('wpswd')?.touched || withdrawForm.get('wpswd')?.dirty) && withdrawForm.get('wpswd')?.errors" class="error">invalid acount number</div>
 
-            <input type="text" name="Amount"  formControlName= "wamount"  id="amt1" placeholder="amount">
+            <input type="text" name="Amount"  formControlName= "wamount"  id="amt1" placeholder="amount"><br>
             <div *ngIf= "(withdrawForm.get('wamount')?.touched || withdrawForm.get('wamount')?.dirty) && withdrawForm.get('wamount')?.errors" class="error">invalid acount number</div>
 
             <button class="btn btn-success" onclick="">Withdrwal</button>
-            </form>
+            </form><br>
+           
         </div>
+        <app-delete-confirmation  (onDelete)="onDelete($event)"  (onCancel)="onCancel()" [item]="acno"></app-delete-confirmation>
+        <br>  
+        <button type="submit" class="btn btn-success" (click)="deleteAcc()">Delete Account</button>
+
         <div class="col-4"></div>
     </div>
 </div>

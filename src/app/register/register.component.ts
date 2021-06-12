@@ -24,10 +24,10 @@ export class RegisterComponent implements OnInit {
   register(){
     // console.log(this.registerForm);
     
-console.log(this.registerForm.get('uname')?.errors)
-if(this.registerForm.get('uname')?.errors){
-  alert("username required")
-}
+//console.log(this.registerForm.get('uname')?.errors)
+//if(this.registerForm.get('uname')?.errors){
+//  alert("username required")
+//}
     if(this.registerForm.valid){
 
 var uname=this.registerForm.value.uname;
@@ -35,17 +35,19 @@ var acno=this.registerForm.value.acno;
 var pswd=this.registerForm.value.pswd;
 //console.log(uname,acno,pswd);
 
-const result = this.dataService.register(uname,acno,pswd)
+this.dataService.register(uname,acno,pswd)
+.subscribe((result:any)=>{
+  if(result){
+    alert(result.message);
+    this.router.navigateByUrl("");
+  }
+  },
+  (result)=>{
+    alert(result.error.message)
+    
+  })
 
-if(result){
-  alert("successfully registerd.......");
-  
-  this.router.navigateByUrl("");
 }
-else{
-  alert("user exist please login");
-}
-    }
 else{
   alert("invalid Form")
 }

@@ -10,8 +10,8 @@ import { DataService } from '../servics/data.service';
 })
 export class LoginComponent implements OnInit {
   aim="your perfect banking partner";
-  accno="Acount number please";
-  pswd="";
+  //accno="Acount number please";
+  //pswd="";
   loginForm=this.fb.group({
   accno:['',[Validators.required,Validators.pattern('[0-9]*')]],
   pswd:['',[Validators.required,Validators.pattern('[a-zA-z0-9]*')]]
@@ -22,28 +22,33 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  // accnoChange(event:any){
-  //   this.accno=event.target.value;
-  //   console.log(this.accno);
-    
-  // }
-  // pswdChange(event:any){
-  //   this.pswd=event.target.value;
-  //   console.log(this.pswd);
-    
-  // }
+ 
   login(){
     
+    if(this.loginForm.valid){
     var acno=this.loginForm.value.accno;
     var pswd=this.loginForm.value.pswd;
    
-    const result = this.dataService.login(acno,pswd);
+    this.dataService.login(acno,pswd)
+      .subscribe((result:any)=>{
+        if(result){
+        alert(result.message);
+        localStorage.setItem("name",result.name);
+        localStorage.setItem("acno",result.acno);
+        this.router.navigateByUrl("dashboard")
+  
+      }
+    },
+    (result)=>{
+      alert(result.error.message);
+    
 
-    if(result){
-      alert("login successful")
-      this.router.navigateByUrl("dashboard")
-
-    }
+      })
+ 
+  }
+  else{
+    alert("invalid form")
+  }
   }
 
   
